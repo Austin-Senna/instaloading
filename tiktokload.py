@@ -1,9 +1,12 @@
 from selenium import webdriver
+import requests
 
 accounts = ["joshuamsolomon_", "giselagwenm", "rosyelins", "kendrickliusbong", "daniel_markk_", 
             "mauladzima", "ishawngabriel", "vanneswij2", "irrachional", "hitapryhita", 
             "arkanfadhil_"]
 account_with_data = []
+
+
 driver = webdriver.Chrome()
 
 def get_tiktok_account_info(username):
@@ -37,4 +40,5 @@ for account in accounts:
 print(account_with_data)
 
 driver.quit()
+
 
