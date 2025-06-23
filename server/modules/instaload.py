@@ -1,5 +1,6 @@
 import instaloader
 import time
+import sys
 start_time = time.monotonic()
 
 L = instaloader.Instaloader()
@@ -17,8 +18,9 @@ for account in accounts:
     info = get_instagram_account_info(account)
     account_with_data.append(info)
 
-print(account_with_data)
 
 time_elapsed = time.monotonic() - start_time
+print(account_with_data)
+sys.stdout.flush()
 
 L.close()
