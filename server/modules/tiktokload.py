@@ -14,12 +14,11 @@ chrome_options.add_argument("--headless=new")
 driver = webdriver.Chrome(options=chrome_options)
 
 def get_tiktok_account_info(username):
-    
     driver.get(f"https://www.tiktok.com/@{username}")
-    
+
     timer = 0
     driver.implicitly_wait(0.5)
-
+    
     while True:
         try:
             follower_count = driver.find_element("xpath", "//strong[@title='Followers']")

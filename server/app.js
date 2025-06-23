@@ -1,13 +1,15 @@
 const express = require('express')
 const { spawn } = require('node:child_process');
+require('dotenv').config()
 const mongoose = require('mongoose')
 
 const app = express()
-const dburl = "mongodb+srv://austinsenna:GpD86ojpvfEhKITw@firsttest.g7wvtu6.mongodb.net/blogs";
+const dburl = process.env.DATABASE_API_KEY;
 
 mongoose.connect(dburl)
     .then((result) => app.listen(3000))
     .catch((err) => console.log(err));
+
 
 
 const acquireInstagramData = () => {
