@@ -1,5 +1,7 @@
 from selenium import webdriver
-import requests
+from selenium.webdriver.chrome.options import Options
+import time
+start_time = time.monotonic()
 
 accounts = ["joshuamsolomon_", "giselagwenm", "rosyelins", "kendrickliusbong", "daniel_markk_", 
             "mauladzima", "ishawngabriel", "vanneswij2", "irrachional", "hitapryhita", 
@@ -7,7 +9,9 @@ accounts = ["joshuamsolomon_", "giselagwenm", "rosyelins", "kendrickliusbong", "
 account_with_data = []
 
 
-driver = webdriver.Chrome()
+chrome_options = Options()
+chrome_options.add_argument("--headless=new")
+driver = webdriver.Chrome(options=chrome_options)
 
 def get_tiktok_account_info(username):
     
@@ -38,6 +42,7 @@ for account in accounts:
     account_with_data.append(info)
 
 print(account_with_data)
+print(time.monotonic() - start_time, "seconds")
 
 driver.quit()
 

@@ -1,18 +1,7 @@
 from TikTokApi import TikTokApi
 import asyncio
-import os
 
 api = TikTokApi()
-
-from TikTokApi import TikTokApi
-
-api = TikTokApi()
-
-from TikTokApi import TikTokApi
-import asyncio
-
-api = TikTokApi()
-
 
 async def user_example():
     accounts = [

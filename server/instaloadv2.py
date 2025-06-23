@@ -1,5 +1,6 @@
-# pip install instaloader
 import instaloader
+import time
+start_time = time.monotonic()
 
 L = instaloader.Instaloader()
 
@@ -17,4 +18,5 @@ for account in accounts:
     account_with_data.append(info)
 
 print(account_with_data)
+print(time.monotonic() - start_time, "seconds")
 L.close()
