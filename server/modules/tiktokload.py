@@ -47,3 +47,26 @@ print(time.monotonic() - start_time, "seconds")
 driver.quit()
 
 
+# Try this with playwright, but it doesnt work for me :(
+# from TikTokApi import TikTokApi
+# import asyncio
+
+# api = TikTokApi()
+# accounts = [
+#         "joshuamsolomon_", "giselagwenm", "rosyelins", "kendrickliusbong", "daniel_markk_",
+#         "mauladzima", "ishawngabriel", "vanneswij2", "irrachional", "hitapryhita",
+#         "arkanfadhil_"
+# ]
+
+# account_with_data = []
+
+# async def search_user(username):
+#     await api.create_sessions()
+#     user = api.user(username)
+#     info = await user.info()
+#     print(info)
+
+# asyncio.run(search_user("arkanfadhil_"))
+
+
+

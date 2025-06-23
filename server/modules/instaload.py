@@ -18,5 +18,7 @@ for account in accounts:
     account_with_data.append(info)
 
 print(account_with_data)
-print(time.monotonic() - start_time, "seconds")
+
+time_elapsed = time.monotonic() - start_time
+
 L.close()
