@@ -3,10 +3,7 @@ from selenium.webdriver.chrome.options import Options
 import time
 start_time = time.monotonic()
 
-accounts = ["joshuamsolomon_", "giselagwenm", "rosyelins", "kendrickliusbong", "daniel_markk_", 
-            "mauladzima", "ishawngabriel", "vanneswij2", "irrachional", "hitapryhita", 
-            "arkanfadhil_"]
-account_with_data = []
+result = []
 
 
 chrome_options = Options()

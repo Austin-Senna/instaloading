@@ -1,5 +1,7 @@
 const express = require('express')
 const { spawn } = require('node:child_process');
+const profiles = require("./db/initialDB.json")
+
 require('dotenv').config()
 const mongoose = require('mongoose')
 
@@ -10,9 +12,11 @@ mongoose.connect(dburl)
     .then((result) => app.listen(3000))
     .catch((err) => console.log(err));
 
+app.get("/", (req,res) => {
+    
+})
 
-
-const acquireInstagramData = () => {
+const acquireInstagramListData = (datalist) => {
     const runInstaLoad = spawn('python', ['./modules/instaload.py'])
 
     runInstaLoad.stdout.on('data', (data) => {
@@ -28,7 +32,7 @@ const acquireInstagramData = () => {
     })
 }
 
-const acquireTiktokData = () => {
+const acquireTiktokListData = (datalist) => {
     const runTiktokLoad = spawn('pytest', ['./modules/tiktokload.py'])
 
     runTiktokLoad.stdout.on('data', (data) => {
@@ -43,10 +47,3 @@ const acquireTiktokData = () => {
         console.log(`child process excited with code ${code}`)
     })
 }
-
-acquireInstagramData()
-
-
-// app.get('/', (req,res) => {
-
-// })

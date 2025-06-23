@@ -1,8 +1,11 @@
 import instaloader
 import time
 import sys
-start_time = time.monotonic()
+# import os
+# from dotenv import load_dotenv
+# load_dotenv("../.env")
 
+start_time = time.monotonic()
 L = instaloader.Instaloader()
 
 accounts = ["austin.senna", "keisharch", "max3bld", "bimaarexa", "ishawngabriel", "maulanasatyaad",

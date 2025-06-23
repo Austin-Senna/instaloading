@@ -30,6 +30,10 @@ const Schema = mongoose.Schema
 // })
 
 const profileSchema = new Schema ({
+    name : {
+        type: String,
+        required: true
+    },
     TT_username: {
         type: String,
         required: true

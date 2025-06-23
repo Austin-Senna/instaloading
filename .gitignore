@@ -1,3 +1,5 @@
 client/node_modules
 server/node_modules
 server/.env
+server/db/initialDB.JSON
+server/db/initialDB.csv
