@@ -2,7 +2,7 @@ class TempDatabase {
     constructor() {
         this.tiktokList = [] 
         this.instagramList = []
-        this.actualDatabase = []
+        this.databaseList = []
     }
 
     updateTiktokList(json) {
@@ -22,11 +22,18 @@ class TempDatabase {
     }
 
     mergeList() {
-        for (i in range
+        this.databaseList = []
+
+        const len = Math.min(this.tiktokList.length, this.instagramList.length);
+
+        for (let i = 0; i < len; i++) {
+            const combinedDict = { ...this.tiktokList[i], ...this.instagramList[i] };
+            this.databaseList.push(combinedDict);
+        }
     }
 
-    getDatabase() {
-        return this.ActualDatabase;
+    getDatabaseList() {
+        return this.databaseList;
     }
 }
 
