@@ -1,46 +1,41 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-import time
-start_time = time.monotonic()
+class TiktokLoader:
+    def __init__(self, driver):
+        self.driver = driver
+        self.tiktokList = []
 
-result = []
+    def get_tiktok_account_info(self, name, username):
+        driver = self.driver
 
+        if (username == "-"):
+            return {'user': username, 'followers':0, 'likes':0}    
+        
+        driver.get(f"https://www.tiktok.com/@{username}")
 
-chrome_options = Options()
-chrome_options.add_argument("--headless=new")
-driver = webdriver.Chrome(options=chrome_options)
-
-def get_tiktok_account_info(username):
-    driver.get(f"https://www.tiktok.com/@{username}")
-
-    timer = 0
-    driver.implicitly_wait(0.5)
-    
-    while True:
-        try:
-            follower_count = driver.find_element("xpath", "//strong[@title='Followers']")
-            follower_count_text = follower_count.text
-            like_count = driver.find_element("xpath", "//strong[@title='Likes']")
-            like_count_text = like_count.text
-            break
-        except:
-            driver.implicitly_wait(0.25)
-            timer += 0.25
-            if timer > 5:
-                follower_count_text = 'N/A'
-                like_count_text = 'N/A'
+        timer = 0
+        driver.implicitly_wait(0.5)
+        
+        while True:
+            try:
+                follower_count = driver.find_element("xpath", "//strong[@title='Followers']")
+                follower_count_text = follower_count.text
+                like_count = driver.find_element("xpath", "//strong[@title='Likes']")
+                like_count_text = like_count.text
                 break
+            except:
+                driver.implicitly_wait(0.25)
+                timer += 0.25
+                if timer > 5:
+                    follower_count_text = 'N/A'
+                    like_count_text = 'N/A'
+                    break
+        
+        self.tiktokList.append({'name': name, 'TT_user': username, 
+                            'TT_followers':follower_count_text, 'TT_likes': like_count_text})
+        
+    def get_tiktok_list(self):
+        return self.tiktokList
+    
 
-    return {'user': username, 'followers':follower_count_text, 'likes': like_count_text}
-
-for account in accounts:
-    info = get_tiktok_account_info(account)
-    account_with_data.append(info)
-
-print(account_with_data)
-print(time.monotonic() - start_time, "seconds")
-
-driver.quit()
 
 
 # Try this with playwright, but it doesnt work for me :(
